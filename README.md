@@ -3,5 +3,7 @@
 ### Features
 This microservice handles the following modules :
 
-* Get inventory details of a product.
-* Updates the inventory.
+* Add inventory for a product.
+* Get inventory for a product
+* Increase inventory of a product.
+* Decrease inventory of a product.
