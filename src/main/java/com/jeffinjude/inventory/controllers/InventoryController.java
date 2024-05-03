@@ -87,13 +87,14 @@ public class InventoryController {
 	
 	@PostMapping("update/decrease")
 	public ResponseEntity<String> decreaseProductInventory(@RequestBody InventoryDetails inventoryDetails) {
+		log.info("Inside inventoryDetails. inventoryDetails: " + inventoryDetails.toString());
 		ResponseEntity<String> responseEntity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		try {
 			inventoryService.updatInventoryQuantityService(inventoryDetails, "decrease");
 			responseEntity = new ResponseEntity<>("Product quantity decreased by " + inventoryDetails.getProductQuantity(), HttpStatus.OK);
 		}
 		catch(Exception e) {
-			log.debug("Inside increaseProductInventory. Exception: " + e.getMessage());
+			log.debug("Inside decreaseProductInventory. Exception: " + e.getMessage());
 			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return responseEntity;
